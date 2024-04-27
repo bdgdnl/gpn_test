@@ -15,6 +15,27 @@ docker compose up -d
 
 ## Кейс #1
 1.	Таблица t_employee ежемесячно очищается и в неё загружается реестр из системы источника. Предложить структуру хранения предоставляемых данных, с использованием SCD2.
+```sql
+-- Структура данных для таблицы, в которой будут храниться актуальные значения
+CREATE TABLE t_employee_current (
+    department VARCHAR(50),
+    position VARCHAR(50),
+    employee_id VARCHAR(10),
+    full_name VARCHAR(100),
+    birth_date DATE,
+    address VARCHAR(100),
+    phone1 VARCHAR(15),
+    phone2 VARCHAR(15),
+    month VARCHAR(2),
+    worked_hours INT,
+    need_update BOOLEAN,
+    primary key (department, employee_id)
+) DISTRIBUTED BY (department);
+```
+
+
+
+
 2.	Создать таблицы для хранения данных в Greenplum DBMS
 3.	Наполнить таблицу данными 10-20 записей, 2-3 подразделения, файл *.csv разделители «;»
 4.	При помощи Airflow загрузить файл с таблицей t_employee в созданную структуру.
