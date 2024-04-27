@@ -44,9 +44,9 @@ CREATE TABLE t_employee_history (
     phone2 VARCHAR(15),
     month VARCHAR(2),
     worked_hours INT,
-    action_flag VARCHAR(1),
-    start_date TIMESTAMP,
-    end_date TIMESTAMP,
+    action_flag VARCHAR(1), -- тип операции над записью - удаление, изменение, добавление (D, U, I)
+    start_date TIMESTAMP, -- время, когда строка стала актуальной
+    end_date TIMESTAMP, -- время, когда строка перестала быть актуальной
     primary key (department, employee_id, start_date)
 ) DISTRIBUTED BY (department);
 ```
