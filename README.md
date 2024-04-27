@@ -28,7 +28,7 @@ CREATE TABLE t_employee_current (
     phone2 VARCHAR(15),
     month VARCHAR(2),
     worked_hours INT,
-    need_update BOOLEAN,
+    need_update BOOLEAN, -- ввёл новое поле, чтобы можно было отслеживать строки, в которые внесли изменения
     primary key (department, employee_id)
 ) DISTRIBUTED BY (department);
 
