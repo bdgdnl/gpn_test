@@ -1,7 +1,7 @@
 # gpn_test
 
 ## Установка Airflow
-```
+```shell
 mkdir /opt/airflow
 cd /opt/airflow
 wget https://github.com/bdgdnl/gpn_test/blob/main/docker-compose.yaml
