@@ -31,6 +31,24 @@ CREATE TABLE t_employee_current (
     need_update BOOLEAN,
     primary key (department, employee_id)
 ) DISTRIBUTED BY (department);
+
+-- Структура данных для таблицы, в которой будет храниться история изменений
+CREATE TABLE t_employee_history (
+    department VARCHAR(50),
+    position VARCHAR(50),
+    employee_id VARCHAR(10),
+    full_name VARCHAR(100),
+    birth_date DATE,
+    address VARCHAR(100),
+    phone1 VARCHAR(15),
+    phone2 VARCHAR(15),
+    month VARCHAR(2),
+    worked_hours INT,
+    action_flag VARCHAR(1),
+    start_date TIMESTAMP,
+    end_date TIMESTAMP,
+    primary key (department, employee_id, start_date)
+) DISTRIBUTED BY (department);
 ```
 
 
